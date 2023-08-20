@@ -1,0 +1,7 @@
+{
+  "name": "test-cleverpush",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
