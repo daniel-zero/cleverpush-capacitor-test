@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 import { IonicModule } from '@ionic/angular';
+import CleverPush from 'cleverpush-capacitor-sdk';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +11,13 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class HomePage {
-  constructor() {}
+  public pluginAvailable = false;
+
+  constructor() {
+    this.pluginAvailable = Capacitor.isPluginAvailable('CleverPush');
+    CleverPush.init({
+      channelId: 'YOUR_CHANNEL_ID',
+      autoRegister: true,
+    });
+  }
 }
